@@ -54,8 +54,14 @@
 
     // função que valida o cpf digitado 
     function validaCPF(cpf) {
+        /*
+        let noRepeat = /([0-9]{2,3})\1/g;
+        if(noRepeat.test(cpf)){
+            return false;
+        */
         if (typeof cpf !== 'string' || cpf == 12345678909) return false
         if (typeof cpf !== 'string' || cpf == 98765432100) return false
+
         cpf = cpf.replace(/[^\d]+/g, '')
         if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false
         cpf = cpf.split('')
@@ -120,7 +126,8 @@
             }else{
                 if(cpf.value.length >0){
                     // se o cpf for inválido mostra aqui, a lógica do código 
-                    // não permite gerar um cpf inválido 
+                    // não permite gerar ou digitar um cpf inválido, a não ser que  
+                    // repita o mesmo número nove vezes, ou que esteja na lista de CPFs inválidos 
                     messages.style.color ="red";
                     messages.innerHTML="CPF inválidos";
                 };
@@ -129,7 +136,6 @@
             // enquanto o cpf não for completado, mostra nenhuma informação
             estado.innerHTML="";
             messages.innerHTML="";
-            
         };
 
     };  
@@ -171,6 +177,7 @@
     // mostra o estado do cpf válido
     function estadoPeloCpf(){
 
+        if(messages.innerHTML =="CPF válido" && messages.style.color =="green" ){
             let n9 = cpf.value.substring(8,9);
             if (n9 == 0) {
                 estado.innerHTML = "Dig. 0 Estado(s) - RS";   
@@ -195,6 +202,7 @@
             }else{
                 estado.innerHTML="";
             };
+        };
 
     };
 
