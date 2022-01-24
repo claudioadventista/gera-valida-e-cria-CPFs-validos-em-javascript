@@ -1,4 +1,11 @@
-<style>
+<form class="form" method="post" action="#">
+        <div>C P F</div>
+        <input id="cpf" type="text" maxlength="11" title="Digite o CPF para validar"  onkeyup="validar(); completaCPF()"  
+        onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus autocomplete="off" >
+        <input type="submit" class="gerar" title="Gera CPF válido" value="G E R A R"  onclick="return mostraCPF()" >
+        <input type="submit" class="gerar" title="Copia CPF válido" value="C O P I A R"  onclick="return copiar()" >
+        <input type="submit" class="gerar" title="Limpa o campo CPF" value="L I M P A R"  onclick="return limpar()" >
+    </form><style>
     .container{
         border:solid 1px #ccc;
         border-radius:5px;
@@ -35,11 +42,11 @@
     <h4><center>Gera, valida e cria CPFs válidos em javascript</center></h4>
     <form class="form" method="post" action="#">
         <div>C P F</div>
-        <input id="cpf" type="text" maxlength="11" onkeyup="validar(); completaCPF()"  
+        <input id="cpf" type="text" maxlength="11" title="Digite o CPF para validar"  onkeyup="validar(); completaCPF()"  
         onkeypress="return event.charCode >= 48 && event.charCode <= 57" autofocus autocomplete="off" >
-        <input type="submit" class="gerar" value="G E R A R"  onclick="return mostraCPF()" >
-        <input type="submit" class="gerar" value="C O P I A R"  onclick="return copiar()" >
-            <input type="submit" class="gerar" value="L I M P A R"  onclick="return limpar()" >
+        <input type="submit" class="gerar" title="Gera CPF válido" value="G E R A R"  onclick="return mostraCPF()" >
+        <input type="submit" class="gerar" title="Copia CPF válido" value="C O P I A R"  onclick="return copiar()" >
+        <input type="submit" class="gerar" title="Limpa o campo CPF" value="L I M P A R"  onclick="return limpar()" >
     </form>
     <center><span id="messages"></span></center>
     <div id="estado"></div><br>
